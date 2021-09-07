@@ -21,11 +21,11 @@ POST {{baseUrl}}/api/clients
 Content-Type: application/json
 
 {
-  "name": "Angelo Rafael",
-  "cpf": 123456789,
-  "phone": "+559298765432",
-  "email": "email@email.com",
-  "address": "Rua sem saída, 15"
+  "name": "Nicolas Breno Nelson Silva",
+  "cpf": "929.822.835-06",
+  "phone": "(27) 2734-9247",
+  "email": "nicolasbrenonelsonsilva-95@tita.com.br",
+  "address": "Rua Vinte e Cinco, 657"
 }
 
 ### 

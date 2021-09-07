@@ -6,7 +6,7 @@ export const validateClientRequestBody = (req, res, next) => {
 
   const rules = {
     name: "required|string|max:255",
-    cpf: "required|numeric",
+    cpf: "required|string|max:14",
     phone: "required|string|max:25",
     email: "required|email|max:50",
     address: "required|string|max:255",

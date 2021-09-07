@@ -1,0 +1,56 @@
+# Utilizando o Plugin do VSCode - Rest Client
+
+@baseUrl = http://localhost:3000
+@jsonPlaceholder = https://jsonplaceholder.typicode.com
+
+###
+
+GET {{baseUrl}}
+
+### 
+
+# get Clients
+GET {{baseUrl}}/api/clients
+
+###
+
+# Salvar Cliente
+
+POST {{baseUrl}}/api/clients 
+Content-Type: application/json
+
+{
+  "name": "Angelo Rafael",
+  "cpf": 123456789,
+  "phone": "+559298765432",
+  "email": "email@email.com",
+  "address": "Rua sem saída, 15"
+}
+
+### 
+
+# suppliers
+GET {{baseUrl}}/api/supplies
+
+### 
+
+# products
+GET {{baseUrl}}/api/products
+
+### 
+
+# sales
+GET {{baseUrl}}/api/sales
+
+###
+
+GET {{jsonPlaceholder}}/todos/1 
+
+###
+
+POST {{jsonPlaceholder}}/todos 
+Content-Type: application/json
+
+{
+  "nome": "teste"
+}

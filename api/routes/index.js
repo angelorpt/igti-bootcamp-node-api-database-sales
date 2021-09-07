@@ -4,6 +4,7 @@ import productsRoutes from "./products";
 import salesRoutes from "./sales";
 
 const routes = (app) => {
+  app.get("/", (req, res) => res.send("Expressjs rodando"));
   app.use("/api/clients", clientsRoutes);
   app.use("/api/supplies", suppliesRoutes);
   app.use("/api/products", productsRoutes);

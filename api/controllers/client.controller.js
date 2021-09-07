@@ -1,4 +1,5 @@
 const Validator = require("Validator");
+import clientService from "../services/client.service";
 
 export const validateClientRequestBody = (req, res, next) => {
   let data = req.body;
@@ -27,10 +28,11 @@ export const validateClientRequestBody = (req, res, next) => {
   }
 };
 
-const createClient = (req, res, next) => {
+const createClient = async (req, res, next) => {
   let data = req.body;
   logger.info(`POST /client - ${JSON.stringify(data)}`);
-  res.status(200).send(data);
+  let client = await clientService.createClient(data);
+  res.status(201).send(client);
 };
 
 export default { createClient, validateClientRequestBody };

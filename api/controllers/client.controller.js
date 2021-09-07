@@ -14,12 +14,13 @@ export const validateClientRequestBody = (req, res, next) => {
   const validate = Validator.make(data, rules);
 
   if (validate.fails()) {
-    const error = validate.getErrors();
+    const validateError = validate.getErrors();
     const result = {
       success: false,
-      message: "fail",
-      error,
+      message: "Dados inválidos",
+      error: validateError,
     };
+    logger.error(`POST /client - ${JSON.stringify(result)}`);
     res.status(400).send(result);
   } else {
     next();
@@ -28,6 +29,7 @@ export const validateClientRequestBody = (req, res, next) => {
 
 const createClient = (req, res, next) => {
   let data = req.body;
+  logger.info(`POST /client - ${JSON.stringify(data)}`);
   res.status(200).send(data);
 };
 

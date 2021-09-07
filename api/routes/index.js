@@ -9,6 +9,12 @@ const routes = (app) => {
   app.use("/api/supplies", suppliesRoutes);
   app.use("/api/products", productsRoutes);
   app.use("/api/sales", salesRoutes);
+
+  app.use((err, req, res, next) => {
+    console.log("error", err);
+    logger.error(`${req.method} ${req.baseUrl} - ${err}`);
+    res.status(400).send(err);
+  });
 };
 
 export default routes;

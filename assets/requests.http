@@ -1,4 +1,5 @@
 # Utilizando o Plugin do VSCode - Rest Client
+# Estou utilizando este para que também sirva de documentação
 
 @baseUrl = http://localhost:3000
 @jsonPlaceholder = https://jsonplaceholder.typicode.com

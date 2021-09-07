@@ -9,8 +9,6 @@ router.get("/", (req, res) => {
   res.status(200).send({ message: true });
 });
 
-router.post("/", validateClientRequestBody, (req, res) => {
-  clientController.createClient(req, res);
-});
+router.post("/", validateClientRequestBody, clientController.createClient);
 
 export default router;

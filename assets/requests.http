@@ -10,12 +10,17 @@ GET {{baseUrl}}
 
 ### 
 
-# get Clients
+# GET All Clients
 GET {{baseUrl}}/api/clients
+
+### 
+
+# GET Clients by ID
+GET {{baseUrl}}/api/clients/2
 
 ###
 
-# Salvar Cliente
+# POST Create Client
 
 POST {{baseUrl}}/api/clients 
 Content-Type: application/json
@@ -27,6 +32,24 @@ Content-Type: application/json
   "email": "nicolasbrenonelsonsilva-95@tita.com.br",
   "address": "Rua Vinte e Cinco, 657"
 }
+
+###
+
+PUT {{baseUrl}}/api/clients/4
+Content-Type: application/json
+
+{
+  "name": "Alexandre Iago da Conceição",
+  "cpf": "291.641.207-75",
+  "phone": "(81) 2678-7782",
+  "email": "alexandreiagodaconceicao_@arganet.com.br",
+  "address": "Rua Líbano, 650"
+}
+
+### 
+
+# GET Clients by ID
+DELETE {{baseUrl}}/api/clients/3
 
 ### 
 

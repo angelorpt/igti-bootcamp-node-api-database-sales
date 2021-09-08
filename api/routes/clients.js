@@ -5,10 +5,10 @@ import clientController, {
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.status(200).send({ message: true });
-});
-
+router.get("/", clientController.getClients);
+router.get("/:id", clientController.getClient);
 router.post("/", validateClientRequestBody, clientController.createClient);
+router.put("/:id", validateClientRequestBody, clientController.updateClient);
+router.delete("/:id", clientController.deleteClient);
 
 export default router;

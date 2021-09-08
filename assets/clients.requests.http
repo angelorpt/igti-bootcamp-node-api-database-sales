@@ -1,8 +1,7 @@
 # Utilizando o Plugin do VSCode - Rest Client
-# Estou utilizando este para que também sirva de documentação
+# Estou utilizando este plugin para que as requisições fiquem salvas e já sirva de documentação
 
 @baseUrl = http://localhost:3000
-@jsonPlaceholder = https://jsonplaceholder.typicode.com
 
 ###
 
@@ -16,7 +15,7 @@ GET {{baseUrl}}/api/clients
 ### 
 
 # GET Clients by ID
-GET {{baseUrl}}/api/clients/2
+GET {{baseUrl}}/api/clients/5
 
 ###
 
@@ -35,7 +34,7 @@ Content-Type: application/json
 
 ###
 
-PUT {{baseUrl}}/api/clients/4
+PUT {{baseUrl}}/api/clients/5
 Content-Type: application/json
 
 {
@@ -49,32 +48,6 @@ Content-Type: application/json
 ### 
 
 # GET Clients by ID
-DELETE {{baseUrl}}/api/clients/3
+DELETE {{baseUrl}}/api/clients/4
 
 ### 
-
-# suppliers
-GET {{baseUrl}}/api/supplies
-
-### 
-
-# products
-GET {{baseUrl}}/api/products
-
-### 
-
-# sales
-GET {{baseUrl}}/api/sales
-
-###
-
-GET {{jsonPlaceholder}}/todos/1 
-
-###
-
-POST {{jsonPlaceholder}}/todos 
-Content-Type: application/json
-
-{
-  "nome": "teste"
-}

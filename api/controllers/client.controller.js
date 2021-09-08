@@ -48,6 +48,9 @@ const getClient = async (req, res, next) => {
   const id = req.params.id;
   try {
     let client = await clientService.getClient(id);
+    if (!client) {
+      res.status(404).send({ message: "Cliente não encontrado" });
+    }
     res.status(200).send(client);
   } catch (error) {
     next(error);
@@ -59,6 +62,9 @@ const updateClient = async (req, res, next) => {
   const data = req.body;
   try {
     const client = await clientService.updateClient({ id, data });
+    if (!client) {
+      res.status(404).send({ message: "Cliente não encontrado" });
+    }
     res.status(200).send(client);
   } catch (error) {
     next(error);
@@ -68,11 +74,11 @@ const updateClient = async (req, res, next) => {
 const deleteClient = async (req, res, next) => {
   const id = req.params.id;
   try {
-    const result = await clientService.deleteClient(id);
-    if (!result) {
-      res.status(500).send({ message: "Falha ao excluir o recurso" });
+    const client = await clientService.deleteClient(id);
+    if (!client) {
+      res.status(404).send({ message: "Cliente não encontrado" });
     }
-    res.status(200).send({ message: "Recurso deletado com sucesso" });
+    res.status(200).send({ message: "Cliente deletado com sucesso" });
   } catch (error) {
     next(error);
   }

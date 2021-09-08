@@ -35,7 +35,25 @@ const getClients = async () => {
   }
 };
 
+const existClient = async (id) => {
+  const conn = await connect();
+  try {
+    const sql = `SELECT count(1) AS EXIST FROM clients WHERE client_id = $1`;
+    const values = [id];
+    const result = await conn.query(sql, values);
+    return result.rows[0]["EXIST"] > 0 ? true : false;
+  } catch (error) {
+    throw error;
+  } finally {
+    conn.release();
+  }
+};
+
 const getClient = async (id) => {
+  if (!existClient(id)) {
+    return null;
+  }
+
   const conn = await connect();
   try {
     const sql = `SELECT * FROM clients WHERE client_id = $1`;
@@ -50,6 +68,10 @@ const getClient = async (id) => {
 };
 
 const updateClient = async ({ id, client }) => {
+  if (!existClient(id)) {
+    return null;
+  }
+
   const conn = await connect();
   try {
     const sql = `UPDATE clients
@@ -78,6 +100,10 @@ const updateClient = async ({ id, client }) => {
 };
 
 const deleteClient = async (id) => {
+  if (!existClient(id)) {
+    return null;
+  }
+
   const conn = await connect();
   try {
     const sql = `DELETE FROM clients WHERE client_id = $1`;
